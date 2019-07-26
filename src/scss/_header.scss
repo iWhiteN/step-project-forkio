@@ -1,133 +1,288 @@
 // HEADER
-.header {
-    &__top {
-        padding: 30px 0;
+.header-top {
+    padding: 30px 0;
+    background-color: #27262A;
+
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        padding: 31px 0;
+        position: relative;
+    }
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        padding: 20px 0;
+    }
+    
+    .wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #27262A;
-    
-        &__logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-    
-            &__title {
-                font-family: Lato, Courier;
-                font-weight: 700;
-                font-size: 24px;
-                color: #8D81AC;
-                text-transform: uppercase;
-                margin-left: 17px;
-                transition: .2s;
-            }
 
-            &__icon {
-                transition: .2s;
-            }
-
-            &:hover &__title {
-                color: #FFFFFF;
-            }
-    
-            &:hover &__icon {
-                filter:brightness(200%) ;
-            }
+        @media screen and (min-width: 481px) and (max-width: 992px) {
+            flex-wrap: wrap;
         }
+    }
+}
     
-        &__nav {
-            &__item {
-                font-family: Montserrat, Courier;
-                font-weight: 700;
-                font-size: 16px;
-                color: #8D81AC;
-                margin-left: 48px;
-                text-decoration: none;
-                transition: .2s;
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-self: flex-start;
+    outline: none;
 
-                &:hover {
-                    color: #FFFFFF;
-                }
-            }
-            
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        order: -2;
+    }
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        order: -2;
+    }
     
-            &__item:last-child {
-                padding: 12px 35px;
-                background-color: #8D81AC;
-                color: #FFFFFF;
-                border-radius: 25px;
-                transition: .2s;
+    &__title {
+        font-family: Lato, Courier;
+        font-weight: 700;
+        font-size: 24px;
+        color: #8D81AC;
+        text-transform: uppercase;
+        margin-left: 17px;
+        transition: .2s;
 
-                &:hover {
-                    background-color: #FFFFFF;
-                    color: #8D81AC;
-                }
-            }
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            display: none;
         }
     }
 
-    &__main {
-        background: url('../img/header-main-bg.png') no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding-top: 60px;
-        height: calc(100vh - 161px);
-        text-align: center;
-        position: relative;
+    &__icon {
+        transition: .2s;
+    }
 
-        &__title {
-            font-family: Montserrat, Courier;
-            font-weight: 700;
-            font-size: 60px;
-            color: #FFFFFF
+    &:hover &__title {
+        color: #FFFFFF;
+        outline: none;
+    }
+    
+    &:hover &__icon {
+        filter:brightness(200%);
+        outline: none;
+    }
+
+    &:hover {
+        outline: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+        -webkit-tap-highlight-color: transparent;  // i.e. Nexus5/Chrome and Kindle Fire HD 7''
+    }
+}
+    
+.menu {
+    margin-left: auto;
+
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        margin-left: 0;
+        display: inline-block;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        margin-top: 32px;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__items {
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            display: none;
         }
-        &__subtitle {
-            margin-top: 18px;
-            font-family: Lato, Courier;
-            font-weight: 400;
-            font-size: 22px;
-            color: #8D81AC;
-        }
-        &__description {
-            margin-top: 18px;
-            font-family: Montserrat, Courier;
-            font-weight: 400;
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #848E97;
-        }
-        &__download {
+
+        &--mobile-active {
+            display: flex;
+            flex-direction: column;
             position: absolute;
-            top: calc(100% - 30px);
-            left: 0;
             right: 0;
+            z-index: 1;
+            top: 103px;
+            background-color: #333333;
+        }
+    }
+
+    &__item {
+        font-family: Montserrat, Courier;
+        font-weight: 700;
+        font-size: 16px;
+        color: #8D81AC;
+        margin-left: 48px;
+        text-decoration: none;
+        transition: .2s;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            font-size: 19px;
+            color: #FFFFFF;
+            font-weight: 400;
+            margin-left: 0;
+            padding: 30px 50px 30px 30px;
+            border-bottom: 1px solid #3B3B3B;
             
-            &__btn {
-                display: inline-block;
-                padding: 23px 63px;
-                font-family: Montserrat, Courier;
-                font-weight: 700;
-                font-size: 15px;
-                color: #FFFFFF;
-                background-color: #8D81AC;
-                border-radius: 50px;
-                text-decoration: none;
-                border: 1px solid transparent;
-                transition: .2s;
-                
-                &:hover {
-                    background-color: #FFFFFF;
-                    color: #8D81AC;
-                    border: 1px solid #8D81AC;  
-                }
+            &--mobile-active {
+                color: #8D81AC;
             }
-            &__description {
-                margin-top: 19px;
-                font-family: Montserrat, Courier;
-                font-weight: 400;
-                font-size: 14px;
-                color: #848E97
-            }
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            color: #FFFFFF;
+            outline: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+            -webkit-tap-highlight-color: transparent; 
+        }
+    }
+
+    &__btn-mobile {
+        display: none;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            display: inline-block;
+            filter:brightness(400%);
+        }
+    }
+}
+
+.buy-btn {
+    font-family: Montserrat, Courier;
+    font-weight: 700;
+    font-size: 16px;
+    color: #8D81AC;
+    margin-left: 48px;
+    text-decoration: none;
+    transition: .2s;
+    padding: 12px 35px;
+    background-color: #8D81AC;
+    color: #FFFFFF;
+    border-radius: 25px;
+
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        font-size: 15px;
+        padding: 12px 24px;
+        margin-left: 0;
+        order: -1;
+    }
+    
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        order: -1;
+    }
+
+    &:hover {
+        background-color: #FFFFFF;
+        color: #8D81AC;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+        -webkit-tap-highlight-color: transparent; 
+    }
+}
+
+.header-main {
+    background: url('../img/header-main-bg.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #010005;
+    padding-top: 60px;
+    height: calc(100vh - 235px);
+    text-align: center;
+    position: relative;
+
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        padding-top: 43px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        padding-top: 50px;
+    }
+}
+
+.title {
+    font-family: Montserrat, Courier;
+    font-weight: 700;
+    font-size: 60px;
+    color: #FFFFFF;
+
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        font-size: 35px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 992px) {
+        font-size: 53px;
+    }
+
+    &__subtitle {
+        margin-top: 18px;
+        font-family: Montserrat, Courier;
+        font-weight: 400;
+        font-size: 22px;
+        color: #8D81AC;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        @media screen and (min-width: 481px) and (max-width: 992px) {
+            margin-top: 26px;
+            font-size: 18px;
+        }
+    }
+    &__description {
+        margin-top: 18px;
+        font-family: Montserrat, Courier;
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #848E97;
+
+        @media screen and (min-width: 481px) and (max-width: 992px) {
+            margin-top: 20px;
+            font-size: 10px;
+        }
+    }
+}
+
+.download {
+    position: absolute;
+    top: calc(100% - 30px);
+    left: 0;
+    right: 0;
+    
+    &__btn {
+        display: inline-block;
+        padding: 23px 63px;
+        font-family: Montserrat, Courier;
+        font-weight: 700;
+        font-size: 15px;
+        color: #FFFFFF;
+        background-color: #8D81AC;
+        border-radius: 50px;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: .2s;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            font-size: 13px;
+            padding: 15px 30px;
+        }
+        
+        &:hover {
+            background-color: #FFFFFF;
+            color: #8D81AC;
+            border: 1px solid #8D81AC;  
+            outline: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+            -webkit-tap-highlight-color: transparent; 
+        }
+    }
+
+    &__description {
+        margin-top: 19px;
+        font-family: Montserrat, Courier;
+        font-weight: 400;
+        font-size: 14px;
+        color: #848E97;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            margin-top: 13px;
         }
     }
 }

@@ -23,11 +23,21 @@ var notifyError = function(err) {
 };
 
 task('js:build', function(){
-    return src('src/js/**/*.js')
+    return src('src/js/*.js')
     .pipe(plumber({errorHandler: notifyError}))
     .pipe(babel({presets: ['@babel/env']}))
     .pipe(concat('script.min.js'))
     .pipe(uglify())
+    .pipe(jsmin())
+    .pipe(dest('dist/js/'))
+    .pipe(reload({stream: true}))
+});
+
+task('js-libs:build', function(){
+    return src('src/js/libs/*.js')
+    .pipe(plumber({errorHandler: notifyError}))
+    .pipe(babel({presets: ['@babel/env']}))
+    .pipe(concat('libs.min.js'))
     .pipe(jsmin())
     .pipe(dest('dist/js/'))
     .pipe(reload({stream: true}))
@@ -79,5 +89,5 @@ task('clean', function () {
         .pipe(clean());
 });
 
-task('build', series('clean', parallel('css:build', 'js:build', 'img:build')));
+task('build', series('clean', parallel('css:build', 'js:build', 'js-libs:build', 'img:build')));
 task('dev', parallel('watch', 'webserver'));

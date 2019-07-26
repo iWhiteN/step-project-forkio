@@ -1,14 +1,11 @@
 // RESET
 @import '_reset.scss';
 
+// VARS
+@import '_vars.scss';
+
 // FONTS
 @import '_fonts.scss';
-
-// DEFAULT
-.center {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 // HEADER
 @import '_header.scss';
